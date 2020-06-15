@@ -87,7 +87,7 @@ legendG.append("text")
   .text(function(d){
     return d.value.toLocaleString() + "  " + "Gallons of Product";
   })
-  .style("font-size", 12)
+  .style("font-size", 16)
   .attr("y", 10)
   .attr("x", 11);
 
