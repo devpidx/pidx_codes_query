@@ -14,7 +14,6 @@ var markerLayer
   }).addTo(map);
 var apiURL = "http://api.pidx.org:8080/api/geo/terminals"
 d3.json(apiURL).then(function(response) {
-  console.log(response)
   var markers = [];
   for (var i = 0; i < response.result.length; i++) {
     // Set the data location property to a variable

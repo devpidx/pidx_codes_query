@@ -4,18 +4,15 @@ const tbody = d3.select("tbody") ;
  var filteredData ; 
  var codeElement ;
  var ProductdefElement ;
- var DescriptionElement ;
  var cetaneoctaneElement ;
  var requesterElement ;
  var button ;
  var codeValue ;
  var ProductdefValue ;
- var DescriptionValue ;
  var cetaneoctaneValue ;
  var requesterValue ;
  var codeFilter ;
  var ProductdefFilter ;
- var DescriptionFilter ;
  var cetaneoctaneFilter ;
  var requesterFilter ;
  var MxVal ;
@@ -59,7 +56,6 @@ const tbody = d3.select("tbody") ;
     // Select the input element and get the raw HTML node
         codeElement = d3.select("#code");
         ProductdefElement = d3.select("#Productdef");
-        DescriptionElement = d3.select("#Description");
         cetaneoctaneElement = d3.select("#cetaneoctane");
         requesterElement = d3.select("#requester");
       displaydata(tableData);
@@ -104,8 +100,6 @@ const tbody = d3.select("tbody") ;
        console.log(codeValue);
        ProductdefValue = ProductdefElement.property("value");
        console.log(ProductdefValue);
-       DescriptionValue = DescriptionElement.property("value");
-       console.log(DescriptionValue);
        cetaneoctaneValue = cetaneoctaneElement.property("value");
        cetaneoctaneValue =cetaneoctaneValue.toString() ;
        console.log(cetaneoctaneValue);
@@ -122,11 +116,6 @@ const tbody = d3.select("tbody") ;
          let returnData = tableData['result'].filter(d=>d.product_definition.match(ProductdefValue));
         console.log(returnData)
         return returnData
-      };
-     function DescriptionFilter(tableData){
-       let returnData = tableData['result'].filter(d=>d.description.match(DescriptionValue));
-      console.log(returnData)
-      return returnData
       };
      function cetaneoctaneFilter(tableData){
        let returnData = tableData['result'].filter(d=>d.cetane_octane.match(cetaneoctaneValue));
@@ -149,13 +138,6 @@ const tbody = d3.select("tbody") ;
      if (ProductdefValue != "") {
          console.log(`Filter-Productdef: ${ProductdefValue}`);
          filteredData = ProductdefFilter(filteredData);
-         MnVal = 0 ;
-         MxVal = 20 ;
-         displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
-     }
-     if (DescriptionValue != "") {
-         console.log(`Filter-Description: ${DescriptionValue}`);
-         filteredData = DescriptionFilter(filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
@@ -192,7 +174,6 @@ const tbody = d3.select("tbody") ;
         tbody.text("");
         document.getElementById('code').value = '';
         document.getElementById('Productdef').value = '';
-        document.getElementById('Description').value = '';
         document.getElementById('cetaneoctane').value = '';
         document.getElementById('requester').value = '';
         filteredData = tableData; 
