@@ -97,11 +97,13 @@ const tbody = d3.select("tbody") ;
        tbody.text("");
        // Get the value property of the input element
        codeValue = codeElement.property("value");
+      //  codeValue = codeValue.toUpperCase();
        console.log(codeValue);
        ProductdefValue = ProductdefElement.property("value");
+      //  ProductdefValue = ProductdefValue.toUpperCase();
        console.log(ProductdefValue);
        cetaneoctaneValue = cetaneoctaneElement.property("value");
-       cetaneoctaneValue =cetaneoctaneValue.toString() ;
+       cetaneoctaneValue = cetaneoctaneValue.toString();
        console.log(cetaneoctaneValue);
        requesterValue = requesterElement.property("value");
        requesterValue = requesterValue.toUpperCase();
@@ -130,14 +132,18 @@ const tbody = d3.select("tbody") ;
     //appending filtered data to webpage
      if (codeValue != "") {
          console.log(`Filter-Code: ${codeValue}`);
+         console.log(filteredData);
          filteredData = codeFilter(filteredData);
+         console.log(filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
      }
      if (ProductdefValue != "") {
          console.log(`Filter-Productdef: ${ProductdefValue}`);
+         console.log(filteredData);
          filteredData = ProductdefFilter(filteredData);
+         console.log(filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
