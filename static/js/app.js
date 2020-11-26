@@ -56,7 +56,7 @@ const tbody = d3.select("tbody") ;
 
 // Get all the product codes from the api.pidx.org API
  d3.json('http://api.pidx.org:8080/api/v1/resources/codes/all', function(data) {
-
+  console.log("API Loaded Data = ", data);
   FF = false ;
   tableData = data;
   filteredData = tableData;
