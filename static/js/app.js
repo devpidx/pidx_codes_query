@@ -21,6 +21,7 @@ const tbody = d3.select("tbody") ;
  MnVal = 0 ;
  MxVal = 20 ;
  FF = false ;
+// Function to create a display table
  function displaydata(data, minVal=MnVal, maxVal=MxVal){
    FF = false ;
    //clearing previous filters
@@ -34,6 +35,7 @@ const tbody = d3.select("tbody") ;
      });
    });
  }
+// Function to display filtered data
  function displayfilterdata(data, minVal=MnVal, maxVal=MxVal){ 
   FF = true ;
   //clearing previous filters
@@ -49,6 +51,7 @@ const tbody = d3.select("tbody") ;
     });
   });
 }
+// Get all the product codes from the api.pidx.org API
  d3.json('http://api.pidx.org:8080/api/v1/resources/codes/all', function(data) {
     FF = false ;
     tableData = data;
@@ -98,32 +101,36 @@ const tbody = d3.select("tbody") ;
        // Get the value property of the input element
        codeValue = codeElement.property("value");
       //  codeValue = codeValue.toUpperCase();
-       console.log(codeValue);
+       console.log("codeValue = ", codeValue);
        ProductdefValue = ProductdefElement.property("value");
       //  ProductdefValue = ProductdefValue.toUpperCase();
-       console.log(ProductdefValue);
+       console.log("ProductdefValue = ", ProductdefValue);
        cetaneoctaneValue = cetaneoctaneElement.property("value");
        cetaneoctaneValue = cetaneoctaneValue.toString();
-       console.log(cetaneoctaneValue);
+       console.log("cetaneoctaneValue = ", cetaneoctaneValue);
        requesterValue = requesterElement.property("value");
        requesterValue = requesterValue.toUpperCase();
-       console.log(requesterValue);
+       console.log("requesterValue = ", requesterValue);
+       // Function to filter on codeValue
        function codeFilter(tableData){
           // let returnData = tableData['result'].filter(d=>d.code === codeValue);
           let returnData = tableData['result'].filter(d=>d.code.match(codeValue));
          console.log(returnData)
          return returnData
        };
+       // Function to filter on ProductdefValue
      function ProductdefFilter(tableData){
          let returnData = tableData['result'].filter(d=>d.product_definition.match(ProductdefValue));
         console.log(returnData)
         return returnData
       };
+       // Function to filter on cetaneoctaneValue
      function cetaneoctaneFilter(tableData){
        let returnData = tableData['result'].filter(d=>d.cetane_octane.match(cetaneoctaneValue));
       console.log(returnData)
       return returnData
       };
+       // Function to filter on requesterValue
      function requesterFilter(tableData){
        let returnData = tableData['result'].filter(d=>d.requester.match(requesterValue));
       console.log(returnData)
@@ -132,32 +139,36 @@ const tbody = d3.select("tbody") ;
     //appending filtered data to webpage
      if (codeValue != "") {
          console.log(`Filter-Code: ${codeValue}`);
-         console.log(filteredData);
+         console.log("filteredData = ", filteredData);
          filteredData = codeFilter(filteredData);
-         console.log(filteredData);
+         console.log("filteredData = ", filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
      }
      if (ProductdefValue != "") {
          console.log(`Filter-Productdef: ${ProductdefValue}`);
-         console.log(filteredData);
+         console.log("filteredData = ", filteredData);
          filteredData = ProductdefFilter(filteredData);
-         console.log(filteredData);
+         console.log("filteredData = ", filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
      }
      if (cetaneoctaneValue != "") {
          console.log(`Filter-cetaneoctane: ${cetaneoctaneValue}`);
+         console.log("filteredData = ", filteredData);
          filteredData = cetaneoctaneFilter(filteredData);
+         console.log("filteredData = ", filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
      }
      if (requesterValue != "") {
          console.log(`Filter-shape: ${requesterValue}`);
+         console.log("filteredData = ", filteredData);
          filteredData = requesterFilter(filteredData);
+         console.log("filteredData = ", filteredData);
          MnVal = 0 ;
          MxVal = 20 ;
          displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
