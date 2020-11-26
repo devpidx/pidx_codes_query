@@ -110,6 +110,7 @@ const tbody = d3.select("tbody") ;
    FF === true;
    tableData = data;
    filteredData = tableData; 
+
    //clearing all values displayed on the webpage from previous filters and delete the table
    console.log("Clearing Old Entries");
    tbody.text("");
@@ -141,28 +142,30 @@ const tbody = d3.select("tbody") ;
 
    // Function to filter on ProductdefValue
    function ProductdefFilter(tableData){
-    let returnData = tableData['result'].filter(d=>d.product_definition.match(ProductdefValue));
+    let returnData = tableData['result'].filter(p=>p.product_definition.match(ProductdefValue));
     console.log(returnData)
     return returnData
    };
 
    // Function to filter on cetaneoctaneValue
    function cetaneoctaneFilter(tableData){
-    let returnData = tableData['result'].filter(d=>d.cetane_octane.match(cetaneoctaneValue));
+    let returnData = tableData['result'].filter(c=>c.cetane_octane.match(cetaneoctaneValue));
     console.log(returnData)
     return returnData
    };
 
    // Function to filter on requesterValue
    function requesterFilter(tableData){
-    let returnData = tableData['result'].filter(d=>d.requester.match(requesterValue));
+    let returnData = tableData['result'].filter(r=>r.requester.match(requesterValue));
     console.log(returnData)
     return returnData
    };
    
    // Set the ProductdefValue filtered data and display to webpage
    if (ProductdefValue != "") {
+    console.log("Prod Before Filtered Data = ", filteredData);
     filteredData = ProductdefFilter(filteredData);
+    console.log("After Filtered Data = ", filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
 //    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
@@ -170,7 +173,9 @@ const tbody = d3.select("tbody") ;
    
    // Set the codeValue filtered data and display to webpage
    if (codeValue != "") {
+    console.log("Code Before Filtered Data = ", filteredData);
     filteredData = codeFilter(filteredData);
+    console.log("Code After Filtered Data = ", filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
 //    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
