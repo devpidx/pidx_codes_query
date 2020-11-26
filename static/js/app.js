@@ -165,7 +165,7 @@ const tbody = d3.select("tbody") ;
     filteredData = ProductdefFilter(filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
-    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
+//    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
    }
    
    // Set the codeValue filtered data and display to webpage
@@ -173,7 +173,7 @@ const tbody = d3.select("tbody") ;
     filteredData = codeFilter(filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
-    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
+//    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
    }
 
    // Set the cetaneoctaneValue filtered data and display to webpage
@@ -181,7 +181,7 @@ const tbody = d3.select("tbody") ;
     filteredData = cetaneoctaneFilter(filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
-    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
+//    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
    }
        
    // Set the requesterValue filtered data and display to webpage
@@ -189,8 +189,9 @@ const tbody = d3.select("tbody") ;
     filteredData = requesterFilter(filteredData);
     MnVal = 0 ;
     MxVal = 20 ;
-    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
+//    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
     }
+    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
   });
   
   //  resetting the displayed data to the full dataset while keeping the filter values untouched
