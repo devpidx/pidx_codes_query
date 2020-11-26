@@ -159,15 +159,7 @@ const tbody = d3.select("tbody") ;
     console.log(returnData)
     return returnData
    };
-       
-   // Set the codeValue filtered data and display to webpage
-   if (codeValue != "") {
-    filteredData = codeFilter(filteredData);
-    MnVal = 0 ;
-    MxVal = 20 ;
-    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
-   }
-       
+   
    // Set the ProductdefValue filtered data and display to webpage
    if (ProductdefValue != "") {
     filteredData = ProductdefFilter(filteredData);
@@ -175,7 +167,15 @@ const tbody = d3.select("tbody") ;
     MxVal = 20 ;
     displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
    }
-    
+   
+   // Set the codeValue filtered data and display to webpage
+   if (codeValue != "") {
+    filteredData = codeFilter(filteredData);
+    MnVal = 0 ;
+    MxVal = 20 ;
+    displayfilterdata(filteredData, minVal=MnVal, maxVal=MxVal);
+   }
+
    // Set the cetaneoctaneValue filtered data and display to webpage
    if (cetaneoctaneValue != "") {
     filteredData = cetaneoctaneFilter(filteredData);
