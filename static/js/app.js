@@ -120,13 +120,13 @@ const tbody = d3.select("tbody") ;
        };
        // Function to filter on ProductdefValue
      function ProductdefFilter(tableData){
-         let returnData = tableData['result'].filter(d=>d.product_definition.match(ProductdefValue));
+         //let returnData = tableData['result'].filter(d=>d.product_definition.match(ProductdefValue));
         console.log(returnData)
         return returnData
       };
        // Function to filter on cetaneoctaneValue
      function cetaneoctaneFilter(tableData){
-       let returnData = tableData['result'].filter(d=>d.cetane_octane.match(cetaneoctaneValue));
+       //let returnData = tableData['result'].filter(d=>d.cetane_octane.match(cetaneoctaneValue));
       console.log(returnData)
       return returnData
       };
