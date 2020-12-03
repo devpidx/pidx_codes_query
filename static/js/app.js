@@ -116,7 +116,12 @@ function displaydata(filteredData, minVal=MnVal, maxVal=MxVal){
 //------ COMBINED FILTER ------ Function to filter on all four search items from the form
 function combinedFilter(filteredData){
 
-// Filter on codeValue, removes result node so add it back on as the top level result node and jsonify
+// Filter on codeValue and select everything using ".", this removes the result node so add it back on as the top level result node and jsonify
+ filteredData = filteredData['result'].filter(d=>d.code.match("."));
+ addResultString = "{\"result\": " + JSON.stringify(filteredData) + "}";
+ filteredData = JSON.parse(addResultString);
+
+// Filter on codeValue and add top level node
  filteredData = filteredData['result'].filter(d=>d.code.match(codeValue));
  addResultString = "{\"result\": " + JSON.stringify(filteredData) + "}";
  filteredData = JSON.parse(addResultString);
