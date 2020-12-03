@@ -115,13 +115,8 @@ function displaydata(filteredData, minVal=MnVal, maxVal=MxVal){
 
 //------ COMBINED FILTER ------ Function to filter on all four search items from the form
 function combinedFilter(filteredData){
-// if not result top level node, add one
- if(!(filteredData.hasOwnProperty('result'))){
-  addResultString = "{\"result\": " + JSON.stringify(filteredData) + "}";
-  filteredData = JSON.parse(addResultString);
- }
 
-// Filter on codeValue and add top level result node
+// Filter on codeValue, removes result node so add it back on as the top level result node and jsonify
  filteredData = filteredData['result'].filter(d=>d.code.match(codeValue));
  addResultString = "{\"result\": " + JSON.stringify(filteredData) + "}";
  filteredData = JSON.parse(addResultString);
