@@ -18,5 +18,11 @@ def index():
 def page_not_found(e):
     return "<h1>404</h1><p>The resource could not be found.</p>", 404
 
+#API URLS
+    # Retrieve all data >> http://api.pidx.org:8080/api/v1/resources/codes/all 
+    # Retrieve specific data example >> http://api.pidx.org:8080/api/v1/resources/codes?code=B&product_definition=fuel
+            # specific data params - code, product_definition & description
+
 if __name__ == "__main__":
     app.run(debug=True)
+
